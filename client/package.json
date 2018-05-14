@@ -1,0 +1,46 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer-stylus": "0.10.0",
+    "babel-eslint": "^7.1.1",
+    "concurrently": "^3.5.1",
+    "eslint": "^3.12.2",
+    "eslint-plugin-flowtype": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.8.0",
+    "react-scripts": "0.6.1",
+    "stylus": "0.54.5"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "history": "4.2.0",
+    "material-ui": "^0.20.0",
+    "nodemailer": "^4.6.4",
+    "re-base": "2.2.0",
+    "react": "^15.6.2",
+    "react-addons-css-transition-group": "15.3.2",
+    "react-dom": "^15.6.2",
+    "react-redux": "^5.0.7",
+    "react-responsive-modal": "^2.0.1",
+    "react-router": "4.0.0-alpha.4",
+    "react-scripts": "1.0.17",
+    "react-tooltip": "^3.4.0",
+    "redux-form": "^7.3.0",
+    "source-map": "^0.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "watch": "concurrently --names \"webpack, stylus\" --prefix name \"npm run start\" \"npm run styles:watch\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
+    "styles:watch": "stylus -u autoprefixer-stylus -w ./src/css/style.styl -o ./src/css/style.css",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:5000"
+}
