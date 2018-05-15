@@ -1,5 +1,6 @@
 import React from 'react';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
+import PropTypes from 'prop-types';
 import pageElements from '../reducers/page_elements';
 
 class Order extends React.Component {
@@ -29,7 +30,8 @@ class Order extends React.Component {
 }
 
 Order.contextTypes = {
-  router: React.PropTypes.object
+
+  router: PropTypes.object
 }
 
 export default Order;

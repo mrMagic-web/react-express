@@ -23,19 +23,20 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api/form', (req, res) => {
-  console.log(req.body);
-
+    const prods = Object.keys(JSON.parse(req.body.products));
    const output = `
     <p>You have a new contact request</p>
     <h3>Contact Details</h3>
     <ul>  
       <li>Name: ${req.body.name}</li>
-      <li>Company: ${req.body.company}</li>
       <li>Email: ${req.body.email}</li>
       <li>Phone: ${req.body.phone}</li>
     </ul>
     <h3>Message</h3>
     <p>${req.body.message}</p>
+    <hr/>
+    <h4>Products</h4>
+    ${prods.map( p => `${p} <br/>`)}
   `;
 	 // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
