@@ -3,16 +3,16 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const nodemailer = require('nodemailer');
+const port = proscess.env.PORT || 5000;
 
 const app = express();
-
 
 // View engine setup
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 // Static folder
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,9 +22,10 @@ app.get('/', (req, res) => {
   res.render('contact');
 });
 
+
 app.post('/api/form', (req, res) => {
-    const prods = Object.keys(JSON.parse(req.body.products));
-   const output = `
+  const prods = Object.keys(JSON.parse(req.body.products));
+  const output = `
     <p>You have a new contact request</p>
     <h3>Contact Details</h3>
     <ul>  
@@ -73,7 +74,5 @@ app.post('/api/form', (req, res) => {
   });
 
 });
-
-const port = 5000;
 
 app.listen(port, () => `Server running on port ${port}`);

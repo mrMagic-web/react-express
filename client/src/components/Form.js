@@ -43,8 +43,9 @@ class Form extends React.Component {
         const product = this.props.products[e];
         const back = imageUrl + 'thumbs/' +product.id + '.jpg';
         const tip = product.id;
-        return <div data-tip={tip} style={ {backgroundImage: `url(${back})` }} className="order-product" key={product.id}></div>;
-    }
+        return <div data-tip={tip} style={ {backgroundImage: `url(${back})` } } className="order-product" key={product.id}></div>;
+    };
+
     handleSubmit(e) {
         e.preventDefault();
         const err = this.validate();
